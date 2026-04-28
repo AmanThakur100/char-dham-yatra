@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import api from '../utils/api';
 import './Weather.css';
 
 /* Add these styles to Weather.css if not already present or inline here for simplicity */
@@ -69,13 +70,13 @@ const Weather = () => {
       setError(null);
 
       // Use backend proxy to securely fetch weather data
-      const response = await fetch(`/api/weather?lat=${location.lat}&lon=${location.lon}`);
+      const response = await api.get(`/weather?lat=${location.lat}&lon=${location.lon}`);
 
-      if (!response.ok) {
+      if (response.status !== 200) {
         throw new Error('Failed to fetch weather data');
       }
 
-      const data = await response.json();
+      const data = response.data;
       setWeatherData(prev => ({
         ...prev,
         [location.name]: {
