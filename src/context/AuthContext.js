@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import api from '../utils/api';
+import { io } from 'socket.io-client';
 
 const AuthContext = createContext();
 
@@ -15,6 +16,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [socket, setSocket] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -23,18 +25,31 @@ export const AuthProvider = ({ children }) => {
     if (token && savedUser) {
       setUser(JSON.parse(savedUser));
       setIsAuthenticated(true);
-      // Verify token by fetching user profile
       fetchUserProfile();
     } else {
       setLoading(false);
     }
+
+    // Socket.IO connection
+    const newSocket = io('http://localhost:5000', { transports: ['websocket', 'polling'] });
+    setSocket(newSocket);
+    return () => newSocket.close();
   }, []);
 
   const fetchUserProfile = async () => {
     try {
       const response = await api.get('/user/profile');
-      setUser(response.data);
-      localStorage.setItem('user', JSON.stringify(response.data));
+      const userData = {
+        id: response.data._id,
+        name: response.data.name,
+        email: response.data.email,
+        phone: response.data.phone,
+        isAdmin: response.data.isAdmin,
+        address: response.data.address,
+        bio: response.data.bio,
+      };
+      setUser(userData);
+      localStorage.setItem('user', JSON.stringify(userData));
       setIsAuthenticated(true);
     } catch (error) {
       console.error('Error fetching user profile:', error);
@@ -77,7 +92,6 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       console.error('Registration error:', error);
       
-      // Handle network errors
       if (!error.response) {
         return {
           success: false,
@@ -85,11 +99,31 @@ export const AuthProvider = ({ children }) => {
         };
       }
       
-      // Return the error message from the server
       return {
         success: false,
         message: error.response?.data?.message || 'Registration failed. Please try again.',
       };
+    }
+  };
+
+  const updateProfile = async (updates) => {
+    try {
+      const response = await api.put('/user/profile', updates);
+      const updatedUser = { ...user, ...response.data.user };
+      setUser(updatedUser);
+      localStorage.setItem('user', JSON.stringify(updatedUser));
+      return { success: true, user: updatedUser };
+    } catch (error) {
+      return { success: false, message: error.response?.data?.message || 'Update failed' };
+    }
+  };
+
+  const changePassword = async (currentPassword, newPassword) => {
+    try {
+      await api.put('/user/password', { currentPassword, newPassword });
+      return { success: true };
+    } catch (error) {
+      return { success: false, message: error.response?.data?.message || 'Password change failed' };
     }
   };
 
@@ -108,8 +142,10 @@ export const AuthProvider = ({ children }) => {
     register,
     logout,
     fetchUserProfile,
+    updateProfile,
+    changePassword,
+    socket,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
-

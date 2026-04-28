@@ -7,9 +7,16 @@ A full-stack web application for booking and managing Char Dham Yatra (pilgrimag
 - 🔐 **User Authentication**: Secure registration and login system with JWT tokens
 - 📦 **Tour Packages**: Browse and view detailed information about various Char Dham Yatra packages
 - 📅 **Booking System**: Book tours with traveler count and travel date selection
+- 💳 **Payments Integration**: Secure simulated checkout flow powered by Razorpay
 - 📊 **User Dashboard**: View and manage all your bookings in one place
+- 👑 **Admin Dashboard**: Comprehensive management of users, bookings, and tour packages (CRUD)
+- 🌤️ **Live Weather**: Real-time weather updates for Char Dham locations via OpenWeather API
+- 📧 **Automated Emails**: Confirmation and welcome emails via Nodemailer (Gmail OAuth2/App Passwords)
+- ✨ **AI Recommendations**: Personalized package suggestions based on user booking history using Content-Based Filtering
+- 📈 **Dynamic Pricing**: Heuristic AI pricing engine that adjusts costs based on peak seasons and demand
+- 🤖 **Smart NLP Chatbot**: A zero-budget local chatbot powered by `node-nlp` to understand natural language intents (routes, budget, features)
 - 🎨 **Modern UI**: Beautiful, responsive design with smooth animations
-- 🔒 **Protected Routes**: Secure access to booking and dashboard pages
+- 🔒 **Protected Routes**: Secure access to booking, admin, and dashboard pages
 
 ## Tech Stack
 
@@ -20,11 +27,13 @@ A full-stack web application for booking and managing Char Dham Yatra (pilgrimag
 - CSS3 (Custom styling)
 
 ### Backend
-- Node.js
-- Express.js
+- Node.js & Express.js
 - MongoDB (Mongoose)
-- JWT (JSON Web Tokens)
-- bcryptjs (Password hashing)
+- JWT (JSON Web Tokens) & bcryptjs (Password hashing)
+- Nodemailer & Googleapis (Email delivery)
+- Razorpay SDK (Payments)
+- node-nlp (Natural Language Processing for Chatbot)
+- Socket.io (Real-time updates)
 
 ## Prerequisites
 
@@ -93,6 +102,10 @@ char-dham-yatra/
 │   │   ├── Booking.js       # Booking form
 │   │   ├── Dashboard.js     # User dashboard
 │   │   ├── Navbar.js        # Navigation bar
+│   │   ├── AdminDashboard.js# Admin management interface
+│   │   ├── Chatbot.js       # NLP Smart Chatbot UI
+│   │   ├── Recommendations.js# AI Package suggestions
+│   │   ├── Weather.js       # Live weather widget
 │   │   └── ProtectedRoute.js # Route protection
 │   ├── context/
 │   │   └── AuthContext.js   # Authentication context
@@ -100,6 +113,9 @@ char-dham-yatra/
 │   │   └── api.js          # API utility functions
 │   ├── App.js              # Main App component
 │   └── index.js            # Entry point
+├── utils/
+│   ├── email.js            # Email transporter utility
+│   └── nlpManager.js       # NLP Intent training and processing
 ├── .env                    # Environment variables
 └── package.json            # Dependencies
 ```
@@ -115,9 +131,17 @@ char-dham-yatra/
 - `GET /api/packages` - Get all tour packages
 - `GET /api/packages/:id` - Get single package details
 
-### Bookings
+### Bookings & Payments
 - `POST /api/bookings` - Create a new booking (protected)
 - `GET /api/bookings` - Get user's bookings (protected)
+- `POST /api/payment/create-order` - Create Razorpay order
+- `POST /api/payment/verify` - Verify Razorpay payment
+
+### Admin & AI
+- `GET/POST/PUT/DELETE /api/admin/*` - Admin package and booking management
+- `GET /api/recommendations` - Get AI personalized packages
+- `POST /api/chat` - Process NLP chatbot message
+- `GET /api/weather` - Proxy OpenWeather API
 
 ## Usage
 
@@ -146,13 +170,9 @@ The application comes with 6 pre-configured tour packages:
 
 ## Future Enhancements
 
-- Payment gateway integration
-- Email notifications
-- Booking cancellation
-- User profile editing
-- Reviews and ratings
-- Admin dashboard
-- Real-time booking updates
+- Production deployment using Docker
+- Mobile application using React Native
+- Multi-language support for the NLP Chatbot
 
 ## Troubleshooting
 

@@ -61,56 +61,15 @@ const Weather = () => {
     }
   ];
 
-  // Note: Replace with your OpenWeatherMap API key
-  // Get a free API key from https://openweathermap.org/api
-  const API_KEY = process.env.REACT_APP_WEATHER_API_KEY || 'YOUR_API_KEY_HERE';
-  const API_BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
+
 
   const fetchWeather = async (location) => {
     try {
       setLoading(true);
       setError(null);
 
-      // If no API key, use mock data
-      if (!API_KEY || API_KEY === 'YOUR_API_KEY_HERE') {
-        // Mock weather data for demonstration
-        const mockData = {
-          main: {
-            temp: Math.round(273.15 + (Math.random() * 15 + 5)), // 5-20°C in Kelvin
-            feels_like: Math.round(273.15 + (Math.random() * 15 + 5)),
-            humidity: Math.round(Math.random() * 40 + 40), // 40-80%
-            pressure: Math.round(Math.random() * 100 + 950) // 950-1050 hPa
-          },
-          weather: [
-            {
-              main: ['Clear', 'Clouds', 'Rain', 'Snow'][Math.floor(Math.random() * 4)],
-              description: 'Partly cloudy',
-              icon: '01d'
-            }
-          ],
-          wind: {
-            speed: (Math.random() * 10 + 5).toFixed(1) // 5-15 m/s
-          },
-          visibility: Math.round(Math.random() * 5000 + 5000) // 5-10 km
-        };
-
-        setTimeout(() => {
-          setWeatherData(prev => ({
-            ...prev,
-            [location.name]: {
-              ...mockData,
-              location: location.name,
-              altitude: location.altitude
-            }
-          }));
-          setLoading(false);
-        }, 500);
-        return;
-      }
-
-      const response = await fetch(
-        `${API_BASE_URL}?lat=${location.lat}&lon=${location.lon}&appid=${API_KEY}&units=metric`
-      );
+      // Use backend proxy to securely fetch weather data
+      const response = await fetch(`/api/weather?lat=${location.lat}&lon=${location.lon}`);
 
       if (!response.ok) {
         throw new Error('Failed to fetch weather data');
@@ -210,13 +169,6 @@ const Weather = () => {
             📍 Get My Location Weather
           </button>
         </div>
-        {(!API_KEY || API_KEY === 'YOUR_API_KEY_HERE') && (
-          <div className="api-warning">
-            ⚠️ Using mock data. Add your OpenWeatherMap API key to get real-time weather.
-            <br />
-            <small>Get a free API key at <a href="https://openweathermap.org/api" target="_blank" rel="noopener noreferrer">openweathermap.org</a></small>
-          </div>
-        )}
       </div>
 
       {error && (

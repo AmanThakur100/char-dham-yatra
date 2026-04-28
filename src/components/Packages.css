@@ -81,9 +81,22 @@
 .package-content h3 {
   color: #333;
   font-size: 24px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-weight: 700;
 }
+
+.package-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.package-rating .rating-text {
+  color: #888;
+  font-size: 13px;
+}
+
 
 .package-description {
   color: #666;
@@ -186,6 +199,81 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* AI Recommendations & Dynamic Pricing Styles */
+.recommendations-section {
+  margin-bottom: 50px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.recommendations-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.recommendations-header h2 {
+  color: #764ba2;
+  font-size: 28px;
+  margin: 0 0 10px;
+}
+
+.recommendations-header p {
+  color: #666;
+}
+
+.recommended-card {
+  border: 2px solid rgba(102, 126, 234, 0.3);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+}
+
+.ai-badge {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+  color: white !important;
+}
+
+.price-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.price-badge.discount {
+  background: #2ecc71;
+}
+
+.price-badge.surge {
+  background: #e74c3c;
+}
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.price-original {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 16px;
+}
+
+.price-amount.dynamic {
+  color: #333;
+}
+
+.recommend-btn {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
 }
 
 @media (max-width: 768px) {

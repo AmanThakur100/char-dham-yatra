@@ -26,14 +26,9 @@
   transition: transform 0.3s;
 }
 
-.navbar-logo:hover {
-  transform: scale(1.05);
-}
+.navbar-logo:hover { transform: scale(1.05); }
 
-.logo-icon {
-  font-size: 32px;
-  margin-right: 10px;
-}
+.logo-icon { font-size: 32px; margin-right: 10px; }
 
 .logo-text {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -45,7 +40,7 @@
 .navbar-menu {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 25px;
 }
 
 .navbar-link {
@@ -53,11 +48,17 @@
   color: #333;
   font-weight: 500;
   transition: color 0.3s;
-  font-size: 16px;
+  font-size: 15px;
 }
 
-.navbar-link:hover {
-  color: #667eea;
+.navbar-link:hover { color: #667eea; }
+
+.admin-nav-link {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
 }
 
 .navbar-button {
@@ -78,7 +79,20 @@
 .navbar-user {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
+}
+
+.user-avatar-nav {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
 }
 
 .user-name {
@@ -117,11 +131,8 @@
   .navbar-menu {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 12px;
   }
 
-  .user-name {
-    display: none;
-  }
+  .user-name { display: none; }
 }
-

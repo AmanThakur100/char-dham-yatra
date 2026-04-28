@@ -1,0 +1,1393 @@
+{
+  "settings": {
+    "languages": [
+      "en"
+    ],
+    "forceNER": true,
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "executeActionsBeforeAnswers": false,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "en"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "trainByDomain": false,
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "is,rout,the,what": {
+            "intent": "yatra.route",
+            "domain": "default"
+          },
+          "do,go,how,i,kedarnath,to": {
+            "intent": "yatra.route",
+            "domain": "default"
+          },
+          "chardham,of,sequenc": {
+            "intent": "yatra.route",
+            "domain": "default"
+          },
+          "me,path,tell,the": {
+            "intent": "yatra.route",
+            "domain": "default"
+          },
+          "do,start,we,where": {
+            "intent": "yatra.route",
+            "domain": "default"
+          },
+          "cost,is,the,what": {
+            "intent": "yatra.budget",
+            "domain": "default"
+          },
+          "cheap,option": {
+            "intent": "yatra.budget",
+            "domain": "default"
+          },
+          "expens,is,it": {
+            "intent": "yatra.budget",
+            "domain": "default"
+          },
+          "budget,is,my,what": {
+            "intent": "yatra.budget",
+            "domain": "default"
+          },
+          "detail,price": {
+            "intent": "yatra.budget",
+            "domain": "default"
+          },
+          "a,packag,recommend": {
+            "intent": "yatra.recommendation",
+            "domain": "default"
+          },
+          "best,is,one,the,which": {
+            "intent": "yatra.recommendation",
+            "domain": "default"
+          },
+          "short,trip": {
+            "intent": "yatra.recommendation",
+            "domain": "default"
+          },
+          "a,suggest,tour": {
+            "intent": "yatra.recommendation",
+            "domain": "default"
+          },
+          "book,i,should,what": {
+            "intent": "yatra.recommendation",
+            "domain": "default"
+          },
+          "includ,is,what": {
+            "intent": "yatra.features",
+            "domain": "default"
+          },
+          "hotel": {
+            "intent": "yatra.features",
+            "domain": "default"
+          },
+          "transport": {
+            "intent": "yatra.features",
+            "domain": "default"
+          },
+          "do,food,provid,you": {
+            "intent": "yatra.features",
+            "domain": "default"
+          },
+          "guid,includ": {
+            "intent": "yatra.features",
+            "domain": "default"
+          },
+          "hard,is,it": {
+            "intent": "yatra.experience",
+            "domain": "default"
+          },
+          "do,peopl,say,what": {
+            "intent": "yatra.experience",
+            "domain": "default"
+          },
+          "review": {
+            "intent": "yatra.experience",
+            "domain": "default"
+          },
+          "fit,requir": {
+            "intent": "yatra.experience",
+            "domain": "default"
+          },
+          "experi,of,other,past,peopl": {
+            "intent": "yatra.experience",
+            "domain": "default"
+          },
+          "hello": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "hi": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "hey": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "bye": {
+            "intent": "greetings.bye",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "yatra.route": "default",
+          "yatra.budget": "default",
+          "yatra.recommendation": "default",
+          "yatra.features": "default",
+          "yatra.experience": "default",
+          "greetings.hello": "default",
+          "greetings.bye": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "what is the route",
+            "intent": "yatra.route"
+          },
+          {
+            "domain": "default",
+            "utterance": "how do i go to kedarnath",
+            "intent": "yatra.route"
+          },
+          {
+            "domain": "default",
+            "utterance": "sequence of chardham",
+            "intent": "yatra.route"
+          },
+          {
+            "domain": "default",
+            "utterance": "tell me the path",
+            "intent": "yatra.route"
+          },
+          {
+            "domain": "default",
+            "utterance": "where do we start",
+            "intent": "yatra.route"
+          },
+          {
+            "domain": "default",
+            "utterance": "what is the cost",
+            "intent": "yatra.budget"
+          },
+          {
+            "domain": "default",
+            "utterance": "cheap options",
+            "intent": "yatra.budget"
+          },
+          {
+            "domain": "default",
+            "utterance": "is it expensive",
+            "intent": "yatra.budget"
+          },
+          {
+            "domain": "default",
+            "utterance": "what is my budget",
+            "intent": "yatra.budget"
+          },
+          {
+            "domain": "default",
+            "utterance": "price details",
+            "intent": "yatra.budget"
+          },
+          {
+            "domain": "default",
+            "utterance": "recommend a package",
+            "intent": "yatra.recommendation"
+          },
+          {
+            "domain": "default",
+            "utterance": "which one is the best",
+            "intent": "yatra.recommendation"
+          },
+          {
+            "domain": "default",
+            "utterance": "short trip",
+            "intent": "yatra.recommendation"
+          },
+          {
+            "domain": "default",
+            "utterance": "suggest a tour",
+            "intent": "yatra.recommendation"
+          },
+          {
+            "domain": "default",
+            "utterance": "what should I book",
+            "intent": "yatra.recommendation"
+          },
+          {
+            "domain": "default",
+            "utterance": "what is included",
+            "intent": "yatra.features"
+          },
+          {
+            "domain": "default",
+            "utterance": "hotels",
+            "intent": "yatra.features"
+          },
+          {
+            "domain": "default",
+            "utterance": "transportation",
+            "intent": "yatra.features"
+          },
+          {
+            "domain": "default",
+            "utterance": "do you provide food",
+            "intent": "yatra.features"
+          },
+          {
+            "domain": "default",
+            "utterance": "guide included",
+            "intent": "yatra.features"
+          },
+          {
+            "domain": "default",
+            "utterance": "is it hard",
+            "intent": "yatra.experience"
+          },
+          {
+            "domain": "default",
+            "utterance": "what do people say",
+            "intent": "yatra.experience"
+          },
+          {
+            "domain": "default",
+            "utterance": "reviews",
+            "intent": "yatra.experience"
+          },
+          {
+            "domain": "default",
+            "utterance": "fitness required",
+            "intent": "yatra.experience"
+          },
+          {
+            "domain": "default",
+            "utterance": "past experience of other people",
+            "intent": "yatra.experience"
+          },
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "bye",
+            "intent": "greetings.bye"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "what": 1,
+              "is": 1,
+              "the": 1,
+              "rout": 1,
+              "how": 1,
+              "do": 1,
+              "i": 1,
+              "go": 1,
+              "to": 1,
+              "kedarnath": 1,
+              "sequenc": 1,
+              "of": 1,
+              "chardham": 1,
+              "tell": 1,
+              "me": 1,
+              "path": 1,
+              "where": 1,
+              "we": 1,
+              "start": 1,
+              "cost": 1,
+              "cheap": 1,
+              "option": 1,
+              "it": 1,
+              "expens": 1,
+              "my": 1,
+              "budget": 1,
+              "price": 1,
+              "detail": 1,
+              "recommend": 1,
+              "a": 1,
+              "packag": 1,
+              "which": 1,
+              "one": 1,
+              "best": 1,
+              "short": 1,
+              "trip": 1,
+              "suggest": 1,
+              "tour": 1,
+              "should": 1,
+              "book": 1,
+              "includ": 1,
+              "hotel": 1,
+              "transport": 1,
+              "you": 1,
+              "provid": 1,
+              "food": 1,
+              "guid": 1,
+              "hard": 1,
+              "peopl": 1,
+              "say": 1,
+              "review": 1,
+              "fit": 1,
+              "requir": 1,
+              "past": 1,
+              "experi": 1,
+              "other": 1,
+              "hello": 1,
+              "hi": 1,
+              "hey": 1,
+              "bye": 1
+            },
+            "intents": {
+              "yatra.route": 1,
+              "yatra.budget": 1,
+              "yatra.recommendation": 1,
+              "yatra.features": 1,
+              "yatra.experience": 1,
+              "greetings.hello": 1,
+              "greetings.bye": 1
+            },
+            "intentFeatures": {
+              "yatra.route": {
+                "what": 1,
+                "is": 1,
+                "the": 1,
+                "rout": 1,
+                "how": 1,
+                "do": 1,
+                "i": 1,
+                "go": 1,
+                "to": 1,
+                "kedarnath": 1,
+                "sequenc": 1,
+                "of": 1,
+                "chardham": 1,
+                "tell": 1,
+                "me": 1,
+                "path": 1,
+                "where": 1,
+                "we": 1,
+                "start": 1
+              },
+              "yatra.budget": {
+                "what": 1,
+                "is": 1,
+                "the": 1,
+                "cost": 1,
+                "cheap": 1,
+                "option": 1,
+                "it": 1,
+                "expens": 1,
+                "my": 1,
+                "budget": 1,
+                "price": 1,
+                "detail": 1
+              },
+              "yatra.recommendation": {
+                "recommend": 1,
+                "a": 1,
+                "packag": 1,
+                "which": 1,
+                "one": 1,
+                "is": 1,
+                "the": 1,
+                "best": 1,
+                "short": 1,
+                "trip": 1,
+                "suggest": 1,
+                "tour": 1,
+                "what": 1,
+                "should": 1,
+                "i": 1,
+                "book": 1
+              },
+              "yatra.features": {
+                "what": 1,
+                "is": 1,
+                "includ": 1,
+                "hotel": 1,
+                "transport": 1,
+                "do": 1,
+                "you": 1,
+                "provid": 1,
+                "food": 1,
+                "guid": 1
+              },
+              "yatra.experience": {
+                "is": 1,
+                "it": 1,
+                "hard": 1,
+                "what": 1,
+                "do": 1,
+                "peopl": 1,
+                "say": 1,
+                "review": 1,
+                "fit": 1,
+                "requir": 1,
+                "past": 1,
+                "experi": 1,
+                "of": 1,
+                "other": 1
+              },
+              "greetings.hello": {
+                "hello": 1,
+                "hi": 1,
+                "hey": 1
+              },
+              "greetings.bye": {
+                "bye": 1
+              }
+            },
+            "featuresToIntent": {
+              "what": [
+                "yatra.route",
+                "yatra.budget",
+                "yatra.recommendation",
+                "yatra.features",
+                "yatra.experience"
+              ],
+              "is": [
+                "yatra.route",
+                "yatra.budget",
+                "yatra.recommendation",
+                "yatra.features",
+                "yatra.experience"
+              ],
+              "the": [
+                "yatra.route",
+                "yatra.budget",
+                "yatra.recommendation"
+              ],
+              "rout": [
+                "yatra.route"
+              ],
+              "how": [
+                "yatra.route"
+              ],
+              "do": [
+                "yatra.route",
+                "yatra.features",
+                "yatra.experience"
+              ],
+              "i": [
+                "yatra.route",
+                "yatra.recommendation"
+              ],
+              "go": [
+                "yatra.route"
+              ],
+              "to": [
+                "yatra.route"
+              ],
+              "kedarnath": [
+                "yatra.route"
+              ],
+              "sequenc": [
+                "yatra.route"
+              ],
+              "of": [
+                "yatra.route",
+                "yatra.experience"
+              ],
+              "chardham": [
+                "yatra.route"
+              ],
+              "tell": [
+                "yatra.route"
+              ],
+              "me": [
+                "yatra.route"
+              ],
+              "path": [
+                "yatra.route"
+              ],
+              "where": [
+                "yatra.route"
+              ],
+              "we": [
+                "yatra.route"
+              ],
+              "start": [
+                "yatra.route"
+              ],
+              "cost": [
+                "yatra.budget"
+              ],
+              "cheap": [
+                "yatra.budget"
+              ],
+              "option": [
+                "yatra.budget"
+              ],
+              "it": [
+                "yatra.budget",
+                "yatra.experience"
+              ],
+              "expens": [
+                "yatra.budget"
+              ],
+              "my": [
+                "yatra.budget"
+              ],
+              "budget": [
+                "yatra.budget"
+              ],
+              "price": [
+                "yatra.budget"
+              ],
+              "detail": [
+                "yatra.budget"
+              ],
+              "recommend": [
+                "yatra.recommendation"
+              ],
+              "a": [
+                "yatra.recommendation"
+              ],
+              "packag": [
+                "yatra.recommendation"
+              ],
+              "which": [
+                "yatra.recommendation"
+              ],
+              "one": [
+                "yatra.recommendation"
+              ],
+              "best": [
+                "yatra.recommendation"
+              ],
+              "short": [
+                "yatra.recommendation"
+              ],
+              "trip": [
+                "yatra.recommendation"
+              ],
+              "suggest": [
+                "yatra.recommendation"
+              ],
+              "tour": [
+                "yatra.recommendation"
+              ],
+              "should": [
+                "yatra.recommendation"
+              ],
+              "book": [
+                "yatra.recommendation"
+              ],
+              "includ": [
+                "yatra.features"
+              ],
+              "hotel": [
+                "yatra.features"
+              ],
+              "transport": [
+                "yatra.features"
+              ],
+              "you": [
+                "yatra.features"
+              ],
+              "provid": [
+                "yatra.features"
+              ],
+              "food": [
+                "yatra.features"
+              ],
+              "guid": [
+                "yatra.features"
+              ],
+              "hard": [
+                "yatra.experience"
+              ],
+              "peopl": [
+                "yatra.experience"
+              ],
+              "say": [
+                "yatra.experience"
+              ],
+              "review": [
+                "yatra.experience"
+              ],
+              "fit": [
+                "yatra.experience"
+              ],
+              "requir": [
+                "yatra.experience"
+              ],
+              "past": [
+                "yatra.experience"
+              ],
+              "experi": [
+                "yatra.experience"
+              ],
+              "other": [
+                "yatra.experience"
+              ],
+              "hello": [
+                "greetings.hello"
+              ],
+              "hi": [
+                "greetings.hello"
+              ],
+              "hey": [
+                "greetings.hello"
+              ],
+              "bye": [
+                "greetings.bye"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "what",
+                "is",
+                "the",
+                "rout",
+                "how",
+                "do",
+                "i",
+                "go",
+                "to",
+                "kedarnath",
+                "sequenc",
+                "of",
+                "chardham",
+                "tell",
+                "me",
+                "path",
+                "where",
+                "we",
+                "start",
+                "cost",
+                "cheap",
+                "option",
+                "it",
+                "expens",
+                "my",
+                "budget",
+                "price",
+                "detail",
+                "recommend",
+                "a",
+                "packag",
+                "which",
+                "one",
+                "best",
+                "short",
+                "trip",
+                "suggest",
+                "tour",
+                "should",
+                "book",
+                "includ",
+                "hotel",
+                "transport",
+                "you",
+                "provid",
+                "food",
+                "guid",
+                "hard",
+                "peopl",
+                "say",
+                "review",
+                "fit",
+                "requir",
+                "past",
+                "experi",
+                "other",
+                "hello",
+                "hi",
+                "hey",
+                "bye"
+              ],
+              "intents": [
+                "yatra.route",
+                "yatra.budget",
+                "yatra.recommendation",
+                "yatra.features",
+                "yatra.experience",
+                "greetings.hello",
+                "greetings.bye"
+              ],
+              "perceptrons": [
+                [
+                  0.03650033846497536,
+                  0.10468237102031708,
+                  4.641740322113037,
+                  8.703258514404297,
+                  2.3290491104125977,
+                  3.055309534072876,
+                  1.2823458909988403,
+                  2.3290491104125977,
+                  2.3290491104125977,
+                  2.3290491104125977,
+                  4.820062637329102,
+                  4.010778903961182,
+                  4.820062637329102,
+                  3.0020036697387695,
+                  3.0020036697387695,
+                  3.0020036697387695,
+                  3.532102584838867,
+                  3.532102584838867,
+                  3.532102584838867,
+                  -5.276434898376465,
+                  -0.6190760135650635,
+                  -0.6190760135650635,
+                  -0.6388091444969177,
+                  -0.4866960644721985,
+                  -0.4474562406539917,
+                  -0.4474562406539917,
+                  -0.5737826824188232,
+                  -0.5737826824188232,
+                  -0.37248578667640686,
+                  -0.7452425360679626,
+                  -0.37248578667640686,
+                  -1.791661024093628,
+                  -1.791661024093628,
+                  -1.791661024093628,
+                  -0.5265806317329407,
+                  -0.5265806317329407,
+                  -0.29236623644828796,
+                  -0.29236623644828796,
+                  -1.0326359272003174,
+                  -1.0326359272003174,
+                  -0.7602676749229431,
+                  -0.69608074426651,
+                  -0.6841779947280884,
+                  -1.3019899129867554,
+                  -1.3019899129867554,
+                  -1.3019899129867554,
+                  -0.34383925795555115,
+                  -0.09970265626907349,
+                  -2.2619826793670654,
+                  -1.4526989459991455,
+                  -0.6324713230133057,
+                  -0.3860824704170227,
+                  -0.3860824704170227,
+                  -0.7980644702911377,
+                  -0.7980644702911377,
+                  -0.7980644702911377,
+                  -0.6232145428657532,
+                  -0.6212488412857056,
+                  -0.6191387176513672,
+                  -0.6168867945671082,
+                  0.6231830987967948
+                ],
+                [
+                  0.9692793488502502,
+                  2.9847612380981445,
+                  0.6126721501350403,
+                  -5.46760892868042,
+                  -0.01841016672551632,
+                  -1.097460150718689,
+                  -1.0625280141830444,
+                  -0.01841016672551632,
+                  -0.01841016672551632,
+                  -0.01841016672551632,
+                  -0.3078594505786896,
+                  -0.47688013315200806,
+                  -0.3078594505786896,
+                  -0.5659306645393372,
+                  -0.5659306645393372,
+                  -0.5659306645393372,
+                  -0.03556438162922859,
+                  -0.03556438162922859,
+                  -0.03556438162922859,
+                  8.472956657409668,
+                  6.590712547302246,
+                  6.590712547302246,
+                  2.033325433731079,
+                  8.000694274902344,
+                  4.607064723968506,
+                  4.607064723968506,
+                  6.580483913421631,
+                  6.580483913421631,
+                  -0.5541009306907654,
+                  -1.0917052030563354,
+                  -0.5541009306907654,
+                  -1.7467869520187378,
+                  -1.7467869520187378,
+                  -1.7467869520187378,
+                  -0.8532585501670837,
+                  -0.8532585501670837,
+                  -0.46572965383529663,
+                  -0.46572965383529663,
+                  -1.025198221206665,
+                  -1.025198221206665,
+                  -5.0587544441223145,
+                  -1.200828194618225,
+                  -1.1856331825256348,
+                  -0.29091519117355347,
+                  -0.29091519117355347,
+                  -0.29091519117355347,
+                  -0.166775643825531,
+                  -5.973569393157959,
+                  -0.8588122725486755,
+                  -0.6888632774353027,
+                  -1.1034427881240845,
+                  -0.6270577311515808,
+                  -0.6270577311515808,
+                  -0.13024121522903442,
+                  -0.13024121522903442,
+                  -0.13024121522903442,
+                  -1.0975359678268433,
+                  -1.0931611061096191,
+                  -1.0885299444198608,
+                  -1.083649754524231,
+                  1.09928058558669
+                ],
+                [
+                  0.07012702524662018,
+                  -0.6835159659385681,
+                  0.7352461814880371,
+                  -1.429905891418457,
+                  -0.8206357955932617,
+                  -1.7410844564437866,
+                  3.7802751064300537,
+                  -0.8206357955932617,
+                  -0.8206357955932617,
+                  -0.8206357955932617,
+                  -0.37142184376716614,
+                  -0.6943990588188171,
+                  -0.37142184376716614,
+                  -0.792321503162384,
+                  -0.792321503162384,
+                  -0.792321503162384,
+                  -0.06847131997346878,
+                  -0.06847131997346878,
+                  -0.06847131997346878,
+                  -1.3442060947418213,
+                  -0.6352302432060242,
+                  -0.6352302432060242,
+                  -0.8834996223449707,
+                  -0.16649118065834045,
+                  -0.35820746421813965,
+                  -0.35820746421813965,
+                  -0.6308635473251343,
+                  -0.6308635473251343,
+                  3.26597261428833,
+                  6.531058311462402,
+                  3.26597261428833,
+                  4.3368964195251465,
+                  4.3368964195251465,
+                  4.3368964195251465,
+                  6.52894401550293,
+                  6.52894401550293,
+                  3.264979362487793,
+                  3.264979362487793,
+                  4.605625152587891,
+                  4.605625152587891,
+                  -1.4631799459457397,
+                  -1.2826558351516724,
+                  -1.2661702632904053,
+                  -0.3563006818294525,
+                  -0.3563006818294525,
+                  -0.3563006818294525,
+                  -0.4870615005493164,
+                  -0.6715494990348816,
+                  -0.7107493877410889,
+                  -0.37112119793891907,
+                  -1.2382934093475342,
+                  -0.767025887966156,
+                  -0.767025887966156,
+                  -0.27173754572868347,
+                  -0.27173754572868347,
+                  -0.27173754572868347,
+                  -1.2259601354599,
+                  -1.2218621969223022,
+                  -1.2179150581359863,
+                  -1.2136865854263306,
+                  1.2224818553180203
+                ],
+                [
+                  0.7532926201820374,
+                  0.8424286842346191,
+                  -2.889488458633423,
+                  -1.2079755067825317,
+                  -0.5730887651443481,
+                  0.43788227438926697,
+                  -1.508135199546814,
+                  -0.5730887651443481,
+                  -0.5730887651443481,
+                  -0.5730887651443481,
+                  -0.7236001491546631,
+                  -1.0990409851074219,
+                  -0.7236001491546631,
+                  -0.2633153796195984,
+                  -0.2633153796195984,
+                  -0.2633153796195984,
+                  -0.9960723519325256,
+                  -0.9960723519325256,
+                  -0.9960723519325256,
+                  -1.190050721168518,
+                  -1.268079161643982,
+                  -1.268079161643982,
+                  -2.2817509174346924,
+                  -1.052557110786438,
+                  -2.0163114070892334,
+                  -2.0163114070892334,
+                  -1.261954426765442,
+                  -1.261954426765442,
+                  -0.6340323686599731,
+                  -1.2668839693069458,
+                  -0.6340323686599731,
+                  -0.172763854265213,
+                  -0.172763854265213,
+                  -0.172763854265213,
+                  -1.2608563899993896,
+                  -1.2608563899993896,
+                  -0.6322773694992065,
+                  -0.6322773694992065,
+                  -0.8701699376106262,
+                  -0.8701699376106262,
+                  9.830817222595215,
+                  11.41837215423584,
+                  11.35893440246582,
+                  3.752106189727783,
+                  3.752106189727783,
+                  3.752106189727783,
+                  2.099395990371704,
+                  -1.2246969938278198,
+                  -2.055651903152466,
+                  -1.6802115440368652,
+                  -2.514918327331543,
+                  -1.2964279651641846,
+                  -1.2964279651641846,
+                  -0.28243929147720337,
+                  -0.28243929147720337,
+                  -0.28243929147720337,
+                  -2.498198986053467,
+                  -2.484565496444702,
+                  -2.470445394515991,
+                  -2.4558541774749756,
+                  2.551849089431232
+                ],
+                [
+                  0.10942940413951874,
+                  -0.27383291721343994,
+                  -1.7965664863586426,
+                  -0.7587869167327881,
+                  -0.6160822510719299,
+                  1.501854658126831,
+                  -1.1441318988800049,
+                  -0.6160822510719299,
+                  -0.6160822510719299,
+                  -0.6160822510719299,
+                  -1.2875912189483643,
+                  0.5291483402252197,
+                  -1.2875912189483643,
+                  -0.21802707016468048,
+                  -0.21802707016468048,
+                  -0.21802707016468048,
+                  -1.1448920965194702,
+                  -1.1448920965194702,
+                  -1.1448920965194702,
+                  -0.6409506797790527,
+                  -0.9653111696243286,
+                  -0.9653111696243286,
+                  3.6745331287384033,
+                  -5.1224236488342285,
+                  -1.010896921157837,
+                  -1.010896921157837,
+                  -0.9536360502243042,
+                  -0.9536360502243042,
+                  -0.4781515896320343,
+                  -0.9557765126228333,
+                  -0.4781515896320343,
+                  -0.0490746796131134,
+                  -0.0490746796131134,
+                  -0.0490746796131134,
+                  -0.953146755695343,
+                  -0.953146755695343,
+                  -0.4773694574832916,
+                  -0.4773694574832916,
+                  -0.4647316038608551,
+                  -0.4647316038608551,
+                  -1.7344037294387817,
+                  -1.8014814853668213,
+                  -1.7878437042236328,
+                  -1.1329154968261719,
+                  -1.1329154968261719,
+                  -1.1329154968261719,
+                  -0.33086663484573364,
+                  8.803537368774414,
+                  6.301855087280273,
+                  4.45948600769043,
+                  11.999717712402344,
+                  6.17490816116333,
+                  6.17490816116333,
+                  1.8420692682266235,
+                  1.8420692682266235,
+                  1.8420692682266235,
+                  -1.9088701009750366,
+                  -1.9011356830596924,
+                  -1.8929888010025024,
+                  -1.884439468383789,
+                  1.9224920080919519
+                ],
+                [
+                  -1.1650631427764893,
+                  -1.707830786705017,
+                  -1.1276016235351562,
+                  -0.20995323359966278,
+                  -0.3221012353897095,
+                  -1.4707473516464233,
+                  -0.8854667544364929,
+                  -0.3221012353897095,
+                  -0.3221012353897095,
+                  -0.3221012353897095,
+                  -0.898890495300293,
+                  -1.3292895555496216,
+                  -0.898890495300293,
+                  -0.6587444543838501,
+                  -0.6587444543838501,
+                  -0.6587444543838501,
+                  -0.5534478425979614,
+                  -0.5534478425979614,
+                  -0.5534478425979614,
+                  -0.09579534083604813,
+                  -1.5502623319625854,
+                  -1.5502623319625854,
+                  -0.9811517000198364,
+                  -0.5887823104858398,
+                  -0.21642111241817474,
+                  -0.21642111241817474,
+                  -1.5496736764907837,
+                  -1.5496736764907837,
+                  -0.776453971862793,
+                  -1.5516796112060547,
+                  -0.776453971862793,
+                  -0.106810562312603,
+                  -0.106810562312603,
+                  -0.106810562312603,
+                  -1.5489561557769775,
+                  -1.5489561557769775,
+                  -0.7751253247261047,
+                  -0.7751253247261047,
+                  -0.5259621143341064,
+                  -0.5259621143341064,
+                  -1.5485516786575317,
+                  -2.9174792766571045,
+                  -2.893852710723877,
+                  -0.5369704365730286,
+                  -0.5369704365730286,
+                  -0.5369704365730286,
+                  -1.5166925191879272,
+                  -0.3877944350242615,
+                  -0.44939595460891724,
+                  -0.012917548418045044,
+                  -2.8567347526550293,
+                  -1.522342562675476,
+                  -1.522342562675476,
+                  -0.4297730326652527,
+                  -0.4297730326652527,
+                  -0.4297730326652527,
+                  10.95726490020752,
+                  10.945032119750977,
+                  10.891189575195312,
+                  -2.9874465465545654,
+                  3.102629723488056
+                ],
+                [
+                  -0.39998653531074524,
+                  -0.582007646560669,
+                  -0.38669103384017944,
+                  -0.07051579654216766,
+                  -0.10918734222650528,
+                  -0.5045204758644104,
+                  -0.30046185851097107,
+                  -0.10918734222650528,
+                  -0.10918734222650528,
+                  -0.10918734222650528,
+                  -0.30784255266189575,
+                  -0.45097699761390686,
+                  -0.30784255266189575,
+                  -0.22060374915599823,
+                  -0.22060374915599823,
+                  -0.22060374915599823,
+                  -0.18994049727916718,
+                  -0.18994049727916718,
+                  -0.18994049727916718,
+                  -0.03032861091196537,
+                  -0.520946741104126,
+                  -0.520946741104126,
+                  -0.326282799243927,
+                  -0.20268818736076355,
+                  -0.07424033433198929,
+                  -0.07424033433198929,
+                  -0.5204156041145325,
+                  -0.5204156041145325,
+                  -0.26318660378456116,
+                  -0.52337646484375,
+                  -0.26318660378456116,
+                  -0.033616870641708374,
+                  -0.033616870641708374,
+                  -0.033616870641708374,
+                  -0.5199401378631592,
+                  -0.5199401378631592,
+                  -0.25970810651779175,
+                  -0.25970810651779175,
+                  -0.17150455713272095,
+                  -0.17150455713272095,
+                  -0.5200607180595398,
+                  -0.9824550151824951,
+                  -0.9746368527412415,
+                  -0.17549797892570496,
+                  -0.17549797892570496,
+                  -0.17549797892570496,
+                  -0.5087042450904846,
+                  -0.12231206893920898,
+                  -0.14943265914916992,
+                  -0.005308049265295267,
+                  -0.9626977443695068,
+                  -0.5113019943237305,
+                  -0.5113019943237305,
+                  -0.14217519760131836,
+                  -0.14217519760131836,
+                  -0.14217519760131836,
+                  -0.9509562253952026,
+                  -0.9423439502716064,
+                  -0.933609127998352,
+                  12.85340690612793,
+                  1.0348074683926005
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "what is the route"
+      ],
+      [
+        "en",
+        "how do i go to kedarnath"
+      ],
+      [
+        "en",
+        "sequence of chardham"
+      ],
+      [
+        "en",
+        "tell me the path"
+      ],
+      [
+        "en",
+        "where do we start"
+      ],
+      [
+        "en",
+        "what is the cost"
+      ],
+      [
+        "en",
+        "cheap options"
+      ],
+      [
+        "en",
+        "is it expensive"
+      ],
+      [
+        "en",
+        "what is my budget"
+      ],
+      [
+        "en",
+        "price details"
+      ],
+      [
+        "en",
+        "recommend a package"
+      ],
+      [
+        "en",
+        "which one is the best"
+      ],
+      [
+        "en",
+        "short trip"
+      ],
+      [
+        "en",
+        "suggest a tour"
+      ],
+      [
+        "en",
+        "what should I book"
+      ],
+      [
+        "en",
+        "what is included"
+      ],
+      [
+        "en",
+        "hotels"
+      ],
+      [
+        "en",
+        "transportation"
+      ],
+      [
+        "en",
+        "do you provide food"
+      ],
+      [
+        "en",
+        "guide included"
+      ],
+      [
+        "en",
+        "is it hard"
+      ],
+      [
+        "en",
+        "what do people say"
+      ],
+      [
+        "en",
+        "reviews"
+      ],
+      [
+        "en",
+        "fitness required"
+      ],
+      [
+        "en",
+        "past experience of other people"
+      ],
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "hi"
+      ],
+      [
+        "en",
+        "hey"
+      ],
+      [
+        "en",
+        "bye"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "en": {
+        "yatra.route": [
+          {
+            "answer": "The traditional Char Dham sequence is West to East: Yamunotri, Gangotri, Kedarnath, and finally Badrinath. We offer packages that cover this exact route starting from Haridwar/Dehradun!"
+          }
+        ],
+        "yatra.budget": [
+          {
+            "answer": "Our packages range from ₹15,000 for budget trips up to ₹45,000 for luxury or helicopter tours. The price includes transport, accommodation, and meals. Check our \"Packages\" page for dynamic pricing deals!"
+          }
+        ],
+        "yatra.recommendation": [
+          {
+            "answer": "If you are short on time, I highly recommend the \"Do Dham Yatra\" (Kedarnath & Badrinath) which takes 5-6 days. For the full experience, the \"Complete Char Dham Yatra\" is 10-12 days. Check the \"Recommended For You\" section on the Packages page!"
+          }
+        ],
+        "yatra.features": [
+          {
+            "answer": "Our packages generally include comfortable hotel stays, daily breakfast and dinner, AC transportation (Innova/Tempo Traveller), and a knowledgeable local guide. Helicopter tickets can be added as extras."
+          }
+        ],
+        "yatra.experience": [
+          {
+            "answer": "The Yatra is spiritually rewarding but physically demanding, especially the 16km Kedarnath trek. Past pilgrims highly recommend carrying warm clothes, basic medicines, and preparing with some light cardio 2 months before the trip. Most reviews praise the breathtaking views and our supportive guides!"
+          }
+        ],
+        "greetings.hello": [
+          {
+            "answer": "Namaste! 🙏 I am your Char Dham AI assistant. How can I help you plan your spiritual journey?"
+          }
+        ],
+        "greetings.bye": [
+          {
+            "answer": "Har Har Mahadev! Safe travels, and let us know if you need any more help."
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}

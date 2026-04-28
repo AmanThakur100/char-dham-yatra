@@ -8,6 +8,8 @@ import Register from './components/Register';
 import Packages from './components/Packages';
 import Booking from './components/Booking';
 import Dashboard from './components/Dashboard';
+import Profile from './components/Profile';
+import AdminDashboard from './components/AdminDashboard';
 import Users from './components/Users';
 import Map from './components/Map';
 import Weather from './components/Weather';
@@ -51,6 +53,22 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute>
+                  <AdminDashboard />
                 </ProtectedRoute>
               }
             />

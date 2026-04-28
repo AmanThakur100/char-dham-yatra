@@ -29,9 +29,13 @@ const Navbar = () => {
           {isAuthenticated ? (
             <>
               <Link to="/dashboard" className="navbar-link">Dashboard</Link>
-              <Link to="/users" className="navbar-link">Users</Link>
+              <Link to="/profile" className="navbar-link">Profile</Link>
+              {user?.isAdmin && (
+                <Link to="/admin" className="navbar-link admin-nav-link">👑 Admin</Link>
+              )}
               <div className="navbar-user">
-                <span className="user-name">Welcome, {user?.name}</span>
+                <div className="user-avatar-nav">{user?.name?.[0]?.toUpperCase() || '?'}</div>
+                <span className="user-name">{user?.name}</span>
                 <button onClick={handleLogout} className="logout-button">
                   Logout
                 </button>
@@ -50,4 +54,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
